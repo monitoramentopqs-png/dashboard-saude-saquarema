@@ -35,32 +35,27 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Função para carregar dados
 @st.cache_data
 def load_data():
     try:
         df = pd.read_csv('dados_saude.csv')
         return df
     except FileNotFoundError:
-        st.error("Arquivo 'dados_saude.csv' não encontrado.")
+        st.error("Arquivo dados_saude.csv não encontrado.")
         return None
 
-# Função para processar dados
 def process_data(df):
     data_extracao = date(2025, 8, 5)
     dias_passados = 5
     dias_total_mes = 30
     percentual_esperado = (dias_passados / dias_total_mes) * 100
     
-    # Agrupar dados duplicados
     df_grouped = df.groupby(['Unidade', 'Indicador', 'Meta'])['Producao'].sum().reset_index()
     
-    # Calcular métricas
     df_grouped['Percentual_Atingido'] = (df_grouped['Producao'] / df_grouped['Meta']) * 100
     df_grouped['Meta_Esperada'] = df_grouped['Meta'] * (percentual_esperado / 100)
     df_grouped['Status_Proporcional'] = (df_grouped['Percentual_Atingido'] / percentual_esperado) * 100
     
-    # Definir status
     def definir_status(row):
         if row['Status_Proporcional'] >= 100:
             return "🔵 Acima do esperado"
@@ -72,19 +67,15 @@ def process_data(df):
     df_grouped['Status'] = df_grouped.apply(definir_status, axis=1)
     return df_grouped, percentual_esperado, data_extracao
 
-# Função principal
 def main():
     st.markdown('<h1 class="main-header">📊 Dashboard de Acompanhamento de Metas - Saúde Saquarema</h1>', unsafe_allow_html=True)
     
-    # Carregar dados
     df = load_data()
     if df is None:
         return
     
-    # Processar dados
     df_processed, percentual_esperado, data_extracao = process_data(df)
     
-    # Sidebar com filtros
     st.sidebar.header("🔍 Filtros")
     
     unidades_selecionadas = st.sidebar.multiselect(
@@ -99,26 +90,23 @@ def main():
         default=sorted(df_processed['Indicador'].unique())
     )
     
-    # Filtrar dados
     df_filtered = df_processed[
         (df_processed['Unidade'].isin(unidades_selecionadas)) &
         (df_processed['Indicador'].isin(indicadores_selecionados))
     ]
     
-    # Informações gerais
     col1, col2, col3 = st.columns(3)
     
     with col1:
-        st.info(f"📅 **Data da Extração:** {data_extracao.strftime('%d/%m/%Y')}")
+        st.info(f"📅 Data da Extração: {data_extracao.strftime('%d/%m/%Y')}")
     
     with col2:
-        st.info(f"📈 **Progresso do Mês:** {percentual_esperado:.1f}% (5 de 30 dias)")
+        st.info(f"📈 Progresso do Mês: {percentual_esperado:.1f}% (5 de 30 dias)")
     
     with col3:
         total_unidades = len(df_filtered['Unidade'].unique())
-        st.info(f"🏥 **Unidades Monitoradas:** {total_unidades}")
+        st.info(f"🏥 Unidades Monitoradas: {total_unidades}")
     
-    # Resumo geral por indicador
     st.header("🎯 Resumo Geral de Performance")
     
     resumo_indicadores = df_filtered.groupby('Indicador').agg({
@@ -158,7 +146,6 @@ def main():
                 value=f"{status_color} {row['Status_vs_Esperado']:.0f}%"
             )
     
-    # Gráficos
     st.header("📊 Visualizações")
     
     col1, col2 = st.columns(2)
@@ -203,7 +190,6 @@ def main():
         
         st.plotly_chart(fig_bar, use_container_width=True)
     
-    # Tabela detalhada
     st.header("📋 Detalhamento por Unidade e Indicador")
     
     df_display = df_filtered.copy()
@@ -217,7 +203,6 @@ def main():
     
     st.dataframe(df_display[colunas_exibir], use_container_width=True, height=400)
     
-    # Insights
     st.header("💡 Principais Insights")
     
     col1, col2 = st.columns(2)
@@ -227,16 +212,15 @@ def main():
         top_unidades = df_filtered.groupby('Unidade')['Status_Proporcional'].mean().nlargest(3)
         
         for unidade, performance in top_unidades.items():
-            st.success(f"**{unidade}**: {performance:.0f}% de performance")
+            st.success(f"{unidade}: {performance:.0f}% de performance")
     
     with col2:
         st.subheader("⚠️ Pontos de Atenção")
         bottom_unidades = df_filtered.groupby('Unidade')['Status_Proporcional'].mean().nsmallest(3)
         
         for unidade, performance in bottom_unidades.items():
-            st.error(f"**{unidade}**: {performance:.0f}% de performance")
+            st.error(f"{unidade}: {performance:.0f}% de performance")
     
-    # Download
     st.header("📥 Download dos Dados")
     csv = df_filtered.to_csv(index=False)
     st.download_button(
