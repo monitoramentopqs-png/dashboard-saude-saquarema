@@ -1,0 +1,57 @@
+Contrato,Meta,Unidade,Indicador,Producao
+Saquarema,240,Esf Bacaxá,Consulta de Enfermagem,25
+Saquarema,300,Esf Bacaxá,Consulta Medica,40
+Saquarema,240,Esf Barra Nova,Consulta de Enfermagem,20
+Saquarema,300,Esf Barra Nova,Consulta Medica,49
+Saquarema,240,Esf Barreira,Consulta de Enfermagem,57
+Saquarema,300,Esf Barreira,Consulta Medica,30
+Saquarema,240,Esf Bicuiba,Consulta de Enfermagem,3
+Saquarema,300,Esf Bicuiba,Consulta Medica,43
+Saquarema,240,Esf Bonsucesso,Consulta de Enfermagem,41
+Saquarema,300,Esf Bonsucesso,Consulta Medica,61
+Saquarema,240,Esf Jaconé,Consulta de Enfermagem,12
+Saquarema,300,Esf Jaconé,Consulta Medica,48
+Saquarema,240,Esf SAMBAQUIS,Consulta de Enfermagem,15
+Saquarema,300,Esf SAMBAQUIS,Consulta Medica,51
+Saquarema,240,Esf Jardim Ipitangas,Consulta de Enfermagem,41
+Saquarema,240,Esf Mombaca,Consulta de Enfermagem,11
+Saquarema,300,Esf Mombaca,Consulta Medica,46
+Saquarema,240,Esf Palmital,Consulta de Enfermagem,16
+Saquarema,300,Esf Palmital,Consulta Medica,24
+Saquarema,240,Esf Rio De Areia,Consulta de Enfermagem,13
+Saquarema,300,Esf Rio De Areia,Consulta Medica,44
+Saquarema,240,Esf Rio Mole,Consulta de Enfermagem,5
+Saquarema,300,Esf Rio Mole,Consulta Medica,31
+Saquarema,300,Esf Rio Mole,Consulta Medica,17
+Saquarema,240,Esf Rio Seco,Consulta de Enfermagem,29
+Saquarema,300,Esf Rio Seco,Consulta Medica,3
+Saquarema,240,Esf Sampaio Correa,Consulta de Enfermagem,26
+Saquarema,300,Esf Sampaio Correa,Consulta Medica,1
+Saquarema,240,Esf Sampaio Correa,Consulta de Enfermagem,4
+Saquarema,300,Esf Sampaio Correa,Consulta Medica,84
+Saquarema,240,Esf Saquarema,Consulta de Enfermagem,9
+Saquarema,300,Esf Saquarema,Consulta Medica,56
+Saquarema,240,Esf Serra Do Mato Grosso,Consulta de Enfermagem,27
+Saquarema,300,Esf Serra Do Mato Grosso,Consulta Medica,54
+Saquarema,240,Esf Vilatur,Consulta de Enfermagem,59
+Saquarema,300,Esf Vilatur,Consulta Medica,22
+Saquarema,240,Esf Água Branca,Consulta de Enfermagem,18
+Saquarema,300,Esf Água Branca,Consulta Medica,29
+Saquarema,300,Posto De Saude De Engenho Grande,Consulta Medica,24
+Saquarema,240,Posto De Saude De Engenho Grande,Consulta de Enfermagem,92
+Saquarema,300,Posto De Saude De Engenho Grande,Consulta Medica,2
+Saquarema,200,Esf Bacaxá,Atendimento Odontologico,33
+Saquarema,200,Esf Barra Nova,Atendimento Odontologico,24
+Saquarema,200,Esf Barra Nova,Atendimento Odontologico,7
+Saquarema,200,Esf Bicuiba,Atendimento Odontologico,47
+Saquarema,200,Esf Bonsucesso,Atendimento Odontologico,38
+Saquarema,200,Esf Jaconé,Atendimento Odontologico,43
+Saquarema,200,Esf Mombaca,Atendimento Odontologico,14
+Saquarema,200,Esf Mombaca,Atendimento Odontologico,13
+Saquarema,200,Esf Rio De Areia,Atendimento Odontologico,31
+Saquarema,200,Esf Rio Mole,Atendimento Odontologico,31
+Saquarema,200,Esf Sampaio Correa,Atendimento Odontologico,122
+Saquarema,200,Esf Saquarema,Atendimento Odontologico,52
+Saquarema,200,Esf Serra Do Mato Grosso,Atendimento Odontologico,55
+Saquarema,200,Esf Vilatur,Atendimento Odontologico,39
+Saquarema,200,Esf Água Branca,Atendimento Odontologico,27
